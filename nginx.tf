@@ -23,6 +23,7 @@ resource "kubernetes_deployment" "nginx" {
       spec {
         security_context { 
          runAsUser = 1000
+        }
         container {
           image = "nginx:latest"
           name  = "example"
@@ -40,8 +41,7 @@ resource "kubernetes_deployment" "nginx" {
              cpu    = "250m"
              memory = "50Mi"    
              
-        }
-        
+          
            }
          }
         }
