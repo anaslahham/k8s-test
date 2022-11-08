@@ -4,7 +4,6 @@ agent any
       stage ('Terraform init') { 
   steps {
    sh '''
-   cd terraform-test/
    terraform init
    ''' 
    }
