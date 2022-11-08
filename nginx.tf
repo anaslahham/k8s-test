@@ -3,7 +3,7 @@ resource "kubernetes_deployment" "nginx" {
     name = "test-nginx"
     namespace = "test-customer"
     labels = {
-      App = "test-nginx"
+      app = "test-nginx"
     }
   }
 
@@ -11,13 +11,13 @@ resource "kubernetes_deployment" "nginx" {
     replicas = 3
     selector {
       match_labels = {
-        App = "test-nginx"
+        app = "test-nginx"
       }
     }
     template {
       metadata {
         labels = {
-         App = "test-nginx"
+         app = "test-nginx"
         }
       }
       spec {
@@ -25,7 +25,7 @@ resource "kubernetes_deployment" "nginx" {
          run_as_user = 1000
         }
         container {
-          image = "nginxinc/nginx-unprivileged"
+          image = "nginx"
           name  = "example"
 
          port {
