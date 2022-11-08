@@ -16,28 +16,28 @@ resource "kubernetes_deployment" "nginx" {
     template {
       metadata {
         labels = {
-        ⦙ App = "test-nginx"
+         App = "test-nginx"
         }
       }
       spec {
         container {
-        ⦙ image = "nginx:latest"
-        ⦙ name  = "example"
+         image = "nginx:latest"
+         name  = "example"
 
-        ⦙ port {
-        ⦙   container_port = 80
-        ⦙ }
+         port {
+           container_port = 80
+         }
 
-        ⦙ resources {
-        ⦙   limits = {
-        ⦙     cpu    = "0.5"
-        ⦙     memory = "512Mi"
-        ⦙   }
-        ⦙   requests = {
-        ⦙     cpu    = "250m"
-        ⦙     memory = "50Mi"
-        ⦙   }
-        ⦙ }
+         resources {
+           limits = {
+             cpu    = "0.5"
+             memory = "512Mi"
+           }
+           requests = {
+             cpu    = "250m"
+             memory = "50Mi"
+           }
+         }
         }
       }
     }
