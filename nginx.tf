@@ -24,8 +24,8 @@ resource "kubernetes_deployment" "nginx" {
         security_context {
           runAsUser = 1000
         container {
-         image = "nginx:latest"
-         name  = "example"
+          image = "nginx:latest"
+          name  = "example"
 
          port {
            container_port = 80
