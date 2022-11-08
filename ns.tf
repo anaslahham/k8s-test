@@ -1,5 +1,5 @@
-resource "kubernetes_namespace" "example2" {
+resource "kubernetes_namespace" "test-customer" {
   metadata {
-    name = "test-from-terraform"
+    name = "test-customer"
   }
 }
