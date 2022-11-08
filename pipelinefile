@@ -19,7 +19,7 @@ agent any
    stage ('Terraform apply') { 
   steps {
    sh '''
-   terraform apply --auto-approve
+   terraform delete --auto-approve
    ''' 
    }
    }
