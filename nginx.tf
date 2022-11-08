@@ -25,7 +25,7 @@ resource "kubernetes_deployment" "nginx" {
          run_as_user = 1000
         }
         container {
-          image = "nginx:latest"
+          image = "nginxinc/nginx-unprivileged"
           name  = "example"
 
          port {
