@@ -11,4 +11,3 @@ provider "kubernetes" {
   config_path    = "/home/ubuntu/terraform-k8s/config"
   config_context = "kubernetes-admin@kubernetes"
 }
-~
