@@ -16,5 +16,12 @@ agent any
    ''' 
    }
    }
+   stage ('Terraform apply') { 
+  steps {
+   sh '''
+   cd terraform-test/
+   terraform apply --auto-approve
+   ''' 
+   }
 }
 }
