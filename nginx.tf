@@ -38,7 +38,7 @@ resource "kubernetes_deployment" "nginx" {
              cpu    = "250m"
              memory = "50Mi"
        security_context { 
-         runAsUser = "1000"       
+         runAsUser = 1000    
              
 
         }
