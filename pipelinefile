@@ -1,56 +1,9 @@
 pipeline {
-agent any
-tools {
-  terraform 'terraform'
-}
-options { ansiColor('xterm') } 
- stages { 
-   stage ('Checkout Repo') { 
-     steps { 
-       cleanWs()
-       sh  'git clone https://github.com/anaslahham/k8s-test'
-      }
-      } 
 
-stage ('Terraform version') { 
-  steps {
-   sh '''
-    terraform --version
-   ''' 
+
+  stages {
+    stage('Terraform Init') {
+      steps {
+        sh "${env.TERRAFORM_HOME}/terraform init -input=false"
+      }
     }
-    }
-    
-  stage ('Terraform init') { 
-  steps {
-   sh '''
-   cd terraform-test/
-   terraform init
-   ''' 
-   }
-   }
-   
-  stage ('Terraform plan') { 
-  steps {
-   sh '''
-   cd terraform-test/
-   terraform plan -out=tfplan.out
-   terraform show -json tfplan.out
-   ''' 
-   }
-   }
-   
- stage ('Terraform apply') { 
-  steps {
-   sh '''
-   cd terraform-test/
-   terraform apply --auto-approve
-   ''' 
-   }
-        post { 
-        always { 
-            cleanWs()
-         }
-        }
-       }
-  }
-}
