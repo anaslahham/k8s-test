@@ -24,4 +24,3 @@ resource "kubernetes_network_policy_v1" "test-customer" {
 
     policy_types = ["Ingress"]
   }
-}
