@@ -6,12 +6,11 @@ resource "kubernetes_network_policy_v1" "test-customer" {
 
   spec {
     pod_selector {
-      match_expressions {
-        key      = "app"
-        operator = "In"
-        values   = ["test-nginx"]
+      match_labels = {
+        app = "test-nginx"
     }
 }
+
     ingress {
       ports {
         port     = "80"
@@ -21,7 +20,6 @@ resource "kubernetes_network_policy_v1" "test-customer" {
 
       }
 
-    policy_types = ["Ingress"]
-    }
-
-     }
+   policy_types = ["Ingress"]
+}
+}
