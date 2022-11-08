@@ -1,10 +1,13 @@
 pipeline {
 agent any
   stages {
-    stage('Terraform Init') {
-      steps {
-        sh "${env.TERRAFORM_HOME}/terraform init -input=false"
-      }
-    }
+      stage ('Terraform init') { 
+  steps {
+   sh '''
+   cd terraform-test/
+   terraform init
+   ''' 
+   }
+   }
 }
 }
