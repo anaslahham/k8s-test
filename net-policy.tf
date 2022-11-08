@@ -5,8 +5,9 @@ resource "kubernetes_network_policy_v1" "test-customer" {
   }
 
   spec {
+    policy_types = ["Ingress"] 
     pod_selector {
-     app = "test-nginx"
+      app = "test-nginx"
     }
 
     ingress {
@@ -18,7 +19,7 @@ resource "kubernetes_network_policy_v1" "test-customer" {
 
       }
 
-     policy_types = ["Ingress"]  
+      
     }
 
      }
