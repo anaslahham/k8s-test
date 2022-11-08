@@ -22,7 +22,7 @@ resource "kubernetes_deployment" "nginx" {
       }
       spec {
         security_context { 
-         runAsUser = 1000
+         run_as_user = 1000
         }
         container {
           image = "nginx:latest"
